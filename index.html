@@ -1,0 +1,697 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinas Perikanan Kabupaten | Official Website</title>
+    <meta name="description" content="Website resmi Dinas Perikanan Kabupaten - Pengelolaan, pembinaan, dan pengembangan sektor perikanan">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1a56a7",
+                        secondary: "#0d4b8a",
+                        accent: "#f59e0b",
+                        dark: "#1f2937",
+                        light: "#f3f4f6"
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    },
+                    transitionProperty: {
+                        'height': 'height',
+                        'spacing': 'margin, padding',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .smooth-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #f59e0b;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Top Announcement Bar -->
+    <div class="bg-primary text-white text-sm py-2 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <p>Selamat datang di website resmi Dinas Perikanan Kabupaten</p>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-accent smooth-transition"><i class="fas fa-phone-alt mr-1"></i> (021) 12345678</a>
+                <a href="#" class="hover:text-accent smooth-transition"><i class="fas fa-envelope mr-1"></i> perikanan@kabupaten.go.id</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="./bwi_logo.png" alt="Logo Dinas Perikanan" class="h-12 mr-4">
+                    <div>
+                        <h1 class="text-xl font-bold text-primary">DINAS PERIKANAN</h1>
+                        <p class="text-sm text-gray-600">Kabupaten Banyuwangi</p>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#home" class="nav-link text-dark font-medium hover:text-primary smooth-transition">Beranda</a>
+                    <a href="#profile" class="nav-link text-dark font-medium hover:text-primary smooth-transition">Profil</a>
+                    <a href="#services" class="nav-link text-dark font-medium hover:text-primary smooth-transition">Layanan</a>
+                    <a href="#publications" class="nav-link text-dark font-medium hover:text-primary smooth-transition">Publikasi</a>
+                    <a href="#news" class="nav-link text-dark font-medium hover:text-primary smooth-transition">Berita</a>
+                    <a href="#contact" class="nav-link text-dark font-medium hover:text-primary smooth-transition">Kontak</a>
+                </div>
+                
+                <button class="lg:hidden focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl text-primary"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="lg:hidden hidden bg-white py-4" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="block py-2 px-4 hover:bg-gray-100 rounded smooth-transition">Beranda</a>
+                    <a href="#profile" class="block py-2 px-4 hover:bg-gray-100 rounded smooth-transition">Profil</a>
+                    <a href="#services" class="block py-2 px-4 hover:bg-gray-100 rounded smooth-transition">Layanan</a>
+                    <a href="#publications" class="block py-2 px-4 hover:bg-gray-100 rounded smooth-transition">Publikasi</a>
+                    <a href="#news" class="block py-2 px-4 hover:bg-gray-100 rounded smooth-transition">Berita</a>
+                    <a href="#contact" class="block py-2 px-4 hover:bg-gray-100 rounded smooth-transition">Kontak</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-primary text-white py-20 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://picsum.photos/1600/900?random=2" alt="Background" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Membangun Sektor Perikanan Yang Berkelanjutan</h1>
+                    <p class="text-lg mb-8">Meningkatkan kesejahteraan masyarakat melalui pengelolaan sumber daya perikanan yang berkelanjutan dan bertanggung jawab.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#services" class="bg-accent hover:bg-yellow-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg smooth-transition transform hover:scale-105">Layanan Kami</a>
+                        <a href="#contact" class="bg-white hover:bg-gray-100 text-primary font-medium py-3 px-6 rounded-lg shadow-lg smooth-transition transform hover:scale-105">Hubungi Kami</a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <img src="https://picsum.photos/600/400?random=3" alt="Ilustrasi Perikanan" class="rounded-lg shadow-2xl animate-float max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="bg-white py-12 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="#" class="bg-gray-50 hover:bg-primary hover:text-white p-6 rounded-lg text-center smooth-transition transform hover:-translate-y-1">
+                    <div class="text-4xl text-primary mb-4 hover:text-white">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Data Produksi</h3>
+                    <p class="text-sm">Statistik hasil perikanan</p>
+                </a>
+                <a href="#" class="bg-gray-50 hover:bg-primary hover:text-white p-6 rounded-lg text-center smooth-transition transform hover:-translate-y-1">
+                    <div class="text-4xl text-primary mb-4 hover:text-white">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Perizinan</h3>
+                    <p class="text-sm">Prosedur perizinan usaha</p>
+                </a>
+                <a href="#" class="bg-gray-50 hover:bg-primary hover:text-white p-6 rounded-lg text-center smooth-transition transform hover:-translate-y-1">
+                    <div class="text-4xl text-primary mb-4 hover:text-white">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Pelatihan</h3>
+                    <p class="text-sm">Program pemberdayaan</p>
+                </a>
+                <a href="#" class="bg-gray-50 hover:bg-primary hover:text-white p-6 rounded-lg text-center smooth-transition transform hover:-translate-y-1">
+                    <div class="text-4xl text-primary mb-4 hover:text-white">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Pengumuman</h3>
+                    <p class="text-sm">Info terbaru</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Profil Dinas Perikanan</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-10">
+                <div class="lg:w-1/2">
+                    <img src="https://picsum.photos/600/400?random=4" alt="Gedung Dinas Perikanan" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4">Visi dan Misi</h3>
+                    <p class="mb-6">Dinas Perikanan Kabupaten berkomitmen untuk mewujudkan pengelolaan sumber daya perikanan yang berkelanjutan dan meningkatkan kesejahteraan masyarakat nelayan.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-xl font-medium text-primary mb-3">Visi</h4>
+                        <p class="pl-4 border-l-4 border-accent">"Mewujudkan Kabupaten Contoh sebagai pusat perikanan tangkap dan budidaya yang berkelanjutan, berdaya saing, dan berwawasan lingkungan."</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-medium text-primary mb-3">Misi</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                                <span>Meningkatkan produksi perikanan yang berkelanjutan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                                <span>Mengembangkan usaha perikanan yang berdaya saing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                                <span>Meningkatkan kesejahteraan masyarakat perikanan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-2 mt-1"></i>
+                                <span>Melestarikan sumber daya perikanan dan lingkungan</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <h3 class="text-2xl font-semibold mb-6 text-center">Struktur Organisasi</h3>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://picsum.photos/1200/600?random=5" alt="Struktur Organisasi Dinas Perikanan" class="w-full rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Layanan Kami</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4">Berbagai layanan yang kami sediakan untuk mendukung pengembangan sektor perikanan di Kabupaten Contoh</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl smooth-transition">
+                    <img src="https://picsum.photos/600/400?random=6" alt="Perizinan Usaha Perikanan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Perizinan Usaha Perikanan</h3>
+                        <p class="text-gray-600 mb-4">Pelayanan perizinan untuk usaha perikanan tangkap, budidaya, dan pengolahan hasil perikanan.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl smooth-transition">
+                    <img src="https://picsum.photos/600/400?random=7" alt="Sertifikasi Produk Perikanan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Sertifikasi Produk Perikanan</h3>
+                        <p class="text-gray-600 mb-4">Layanan sertifikasi untuk menjamin mutu dan keamanan produk perikanan.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl smooth-transition">
+                    <img src="https://picsum.photos/600/400?random=8" alt="Bimbingan Teknis" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Bimbingan Teknis</h3>
+                        <p class="text-gray-600 mb-4">Pelatihan dan pendampingan teknis untuk meningkatkan produktivitas usaha perikanan.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl smooth-transition">
+                    <img src="https://picsum.photos/600/400?random=9" alt="Pemasaran Hasil Perikanan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Pemasaran Hasil Perikanan</h3>
+                        <p class="text-gray-600 mb-4">Fasilitasi pemasaran produk perikanan lokal melalui berbagai saluran distribusi.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl smooth-transition">
+                    <img src="https://picsum.photos/600/400?random=10" alt="Pengaduan Masyarakat" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Pengaduan Masyarakat</h3>
+                        <p class="text-gray-600 mb-4">Layanan pengaduan dan penyelesaian masalah terkait sektor perikanan.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl smooth-transition">
+                    <img src="https://picsum.photos/600/400?random=11" alt="Data dan Informasi" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Data dan Informasi</h3>
+                        <p class="text-gray-600 mb-4">Penyediaan data statistik dan informasi sektor perikanan terkini.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Publikasi</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4">Dokumen dan publikasi resmi Dinas Perikanan Kabupaten Contoh</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg smooth-transition overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-file-pdf text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Laporan Tahunan 2023</h3>
+                                <p class="text-sm text-gray-500">PDF • 2.4 MB</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Laporan kinerja Dinas Perikanan Kabupaten Contoh tahun 2023.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Unduh <i class="fas fa-download ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg smooth-transition overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-file-excel text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Data Produksi 2023</h3>
+                                <p class="text-sm text-gray-500">XLSX • 1.8 MB</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Data statistik produksi perikanan Kabupaten Contoh tahun 2023.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Unduh <i class="fas fa-download ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md hover:shadow-lg smooth-transition overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-file-word text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Pedoman Budidaya</h3>
+                                <p class="text-sm text-gray-500">DOCX • 3.1 MB</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Pedoman teknis budidaya ikan air tawar untuk pemula.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Unduh <i class="fas fa-download ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-lg smooth-transition transform hover:scale-105">
+                    Lihat Semua Publikasi <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Berita Terkini</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4">Informasi dan berita terbaru seputar kegiatan Dinas Perikanan Kabupaten Contoh</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl smooth-transition">
+                    <img src="https://picsum.photos/600/400?random=12" alt="Pelatihan Budidaya Ikan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>15 Juni 2023</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Dinas Perikanan Gelar Pelatihan Budidaya Ikan Nila</h3>
+                        <p class="text-gray-600 mb-4">Pelatihan ini diikuti oleh 50 pembudidaya ikan dari berbagai desa di Kabupaten Contoh.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl smooth-transition">
+                    <img src="https://picsum.photos/600/400?random=13" alt="Bantuan Benih Ikan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>5 Juni 2023</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Penyerahan Bantuan Benih Ikan untuk Pembudidaya</h3>
+                        <p class="text-gray-600 mb-4">Sebanyak 100.000 ekor benih ikan dibagikan kepada pembudidaya di 10 desa.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl smooth-transition">
+                    <img src="https://picsum.photos/600/400?random=14" alt="Kunjungan Kerja" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>28 Mei 2023</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Kunjungan Kerja ke Sentra Produksi Ikan Hias</h3>
+                        <p class="text-gray-600 mb-4">Dinas Perikanan melakukan monitoring perkembangan usaha ikan hias di Kecamatan Contoh.</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary smooth-transition flex items-center">
+                            Baca Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-lg smooth-transition transform hover:scale-105">
+                    Lihat Semua Berita <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4">Silakan hubungi kami untuk informasi lebih lanjut atau pengaduan terkait sektor perikanan</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2">
+                    <div class="bg-white bg-opacity-10 p-8 rounded-lg backdrop-blur-sm">
+                        <h3 class="text-xl font-semibold mb-6">Kirim Pesan</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block mb-2">Nama Lengkap</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 rounded bg-white bg-opacity-20 border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block mb-2">Alamat Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 rounded bg-white bg-opacity-20 border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block mb-2">Subjek</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 rounded bg-white bg-opacity-20 border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block mb-2">Pesan</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-2 rounded bg-white bg-opacity-20 border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+                            </div>
+                            <button type="submit" class="bg-accent hover:bg-yellow-600 text-white font-medium py-3 px-6 rounded-lg smooth-transition transform hover:scale-105">
+                                Kirim Pesan <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white bg-opacity-10 p-8 rounded-lg backdrop-blur-sm h-full">
+                        <h3 class="text-xl font-semibold mb-6">Informasi Kontak</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-accent text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Alamat Kantor</h4>
+                                    <p>Jl. Perikanan No. 123, Kelurahan Contoh, Kecamatan Contoh, Kabupaten Contoh, Provinsi Contoh</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-accent text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Telepon</h4>
+                                    <p>(021) 12345678</p>
+                                    <p>(021) 87654321</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-accent text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Email</h4>
+                                    <p>perikanan@kabupaten.go.id</p>
+                                    <p>info.perikanan@kabupaten.go.id</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-accent text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Jam Kerja</h4>
+                                    <p>Senin - Kamis: 08.00 - 16.00 WIB</p>
+                                    <p>Jumat: 08.00 - 16.30 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium mb-4">Sosial Media</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full smooth-transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full smooth-transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full smooth-transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full smooth-transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507824!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sMonumen%20Nasional!5e0!3m2!1sen!2sid!4v1628589358000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Dinas Perikanan</h3>
+                    <p class="mb-4">Pengelolaan, pembinaan, dan pengembangan sektor perikanan di Kabupaten Contoh.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-accent smooth-transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-accent smooth-transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-accent smooth-transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-accent smooth-transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-accent smooth-transition">Beranda</a></li>
+                        <li><a href="#" class="hover:text-accent smooth-transition">Profil</a></li>
+                        <li><a href="#" class="hover:text-accent smooth-transition">Layanan</a></li>
+                        <li><a href="#" class="hover:text-accent smooth-transition">Publikasi</a></li>
+                        <li><a href="#" class="hover:text-accent smooth-transition">Berita</a></li>
+                        <li><a href="#" class="hover:text-accent smooth-transition">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Layanan Publik</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-accent smooth-transition">Perizinan Usaha</a></li>
+                        <li><a href="#" class="hover:text-accent smooth-transition">Sertifikasi Produk</a></li>
+                        <li><a href="#" class="hover:text-accent smooth-transition">Pelatihan</a></li>
+                        <li><a href="#" class="hover:text-accent smooth-transition">Pengaduan</a></li>
+                        <li><a href="#" class="hover:text-accent smooth-transition">Data Statistik</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Kontak</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1 text-accent"></i>
+                            <span>Jl. Perikanan No. 123, Kabupaten Contoh</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mr-3 mt-1 text-accent"></i>
+                            <span>(021) 12345678</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mr-3 mt-1 text-accent"></i>
+                            <span>perikanan@kabupaten.go.id</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p>&copy; 2023 Dinas Perikanan Kabupaten Contoh. Seluruh hak cipta dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 invisible smooth-transition hover:bg-secondary">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Wonders - Colorful Fish & Weather</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        h1 {
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,102,204,0.75), rgba(0,0,0,0));
+            margin: 30px 0;
+        }
+        
+        h2 {
+            color: #0066cc;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .weather-container {
+            display: flex;
+            gap: 20px;
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .weather-day {
+            flex: 1;
+            text-align: center;
+            min-width: 150px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .weather-icon {
+            width: 60px;
+            height: 60px;
+            margin: 10px auto;
+        }
+        
+        .weather-temp {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #0066cc;
+        }
+        
+        .weather-tips {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #0066cc;
+        }
+        
+        .weather-tips ul {
+            margin: 10px 0 0 20px;
+            padding: 0;
+        }
+        
+        .satellite-map {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .map-container {
+            position: relative;
+        }
+        
+        .map-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255,255,255,0.8);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            z-index: 100;
+        }
+        
+        @media (max-width: 768px) {
+            .weather-container {
+                flex-direction: column;
+            }
+            
+            .weather-day {
+                margin-bottom: 15px;
+            }
+            
+            .satellite-map {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Discover the Wonders of Colorful Fish in the Ocean</h1>
+    <p class="subtitle">Learn about their habitat, types, and how to consume them, as well as their role in the delicious marine ecosystem.</p>
+    
+    <hr>
+    
+    <h2>Scan Disinfections</h2>
+    
+    <h3>Katalog</h3>
+    <p>Maximize your business and grow it with our industry-leading AI solutions. Enjoy premium performance at a fraction of the cost of competitors—that's smart business!</p>
+    
+    <table>
+        <tr>
+            <th>Konsummi</th>
+            <th>Nets</th>
+        </tr>
+        <tr>
+            <td>Sun Ingold</td>
+            <td>Sun Ingold</td>
+        </tr>
+        <tr>
+            <td>Sun Ingold is a natural food company for agriculture, including small, nutritious, and complex fish.</td>
+            <td>Sun Ingold</td>
+        </tr>
+        <!-- Additional rows can be added here -->
+    </table>
+    
+    <hr>
+    
+    <h2>Cuaca & Kondisi Laut</h2>
+    
+    <div class="weather-container">
+        <div class="weather-day">
+            <h3>Hari Ini</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" class="weather-icon" alt="Cerah">
+            <p><strong>Cerah</strong></p>
+            <p class="weather-temp">28°C</p>
+            <p>Kelembapan: 75%</p>
+            <p>Angin: 10 km/jam</p>
+        </div>
+        
+        <div class="weather-day">
+            <h3>Besok</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163634.png" class="weather-icon" alt="Berawan">
+            <p><strong>Berawan</strong></p>
+            <p class="weather-temp">26°C</p>
+            <p>Kelembapan: 80%</p>
+            <p>Angin: 15 km/jam</p>
+        </div>
+        
+        <div class="weather-day">
+            <h3>Lusa</h3>
+            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163677.png" class="weather-icon" alt="Hujan Ringan">
+            <p><strong>Hujan Ringan</strong></p>
+            <p class="weather-temp">24°C</p>
+            <p>Kelembapan: 85%</p>
+            <p>Angin: 20 km/jam</p>
+        </div>
+    </div>
+    
+    <div class="weather-tips">
+        <h3>Tips Aktivitas Laut:</h3>
+        <ul>
+            <li>Hari ini cocok untuk memancing atau menyelam</li>
+            <li>Waspada gelombang tinggi saat hujan</li>
+            <li>Gunakan tabir surya SPF 50+ saat cuaca cerah</li>
+            <li>Periksa prakiraan pasang surut sebelum beraktivitas</li>
+        </ul>
+    </div>
+    
+    <h3>Peta Satelit Cuaca</h3>
+    <div class="map-container">
+        <div class="map-label">Lokasi: Perairan Bali (Lat: -8.253, Long: 114.385)</div>
+        <div class="satellite-map">
+            <iframe 
+                src="https://www.ventusky.com/?p=-8.253;114.385;11&l=radar" 
+                width="100%" 
+                height="100%" 
+                frameborder="0"
+                allowfullscreen
+                style="border:none;"
+                title="Ventusky Weather Radar Map">
+            </iframe>
+        </div>
+    </div>
+    
+    <div class="weather-tips">
+        <h3>Membaca Peta Radar:</h3>
+        <ul>
+            <li><strong>Warna Biru</strong>: Hujan ringan</li>
+            <li><strong>Warna Hijau-Kuning</strong>: Hujan sedang</li>
+            <li><strong>Warna Merah</strong>: Hujan lebat/badai</li>
+            <li><strong>Area Putih</strong>: Awan tebal</li>
+        </ul>
+    </div>
+</body>
+</html>

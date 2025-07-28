@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fishmap AI - Ocean Wonders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
             margin: 0;
@@ -17,6 +18,7 @@
             color: #ffffff;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             min-height: 100vh;
+            transition: background 0.5s ease;
         }
         
         /* Navigation */
@@ -29,6 +31,7 @@
             padding: 1rem 2rem;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
         
         .nav-container {
@@ -45,6 +48,11 @@
             gap: 0.5rem;
             font-weight: 700;
             font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
         }
         
         .logo::before {
@@ -62,11 +70,12 @@
             color: #e2e8f0;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
         
         .nav-menu a:hover {
             color: #3b82f6;
+            transform: translateY(-2px);
         }
         
         .user-icon {
@@ -79,6 +88,11 @@
             justify-content: center;
             color: white;
             font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .user-icon:hover {
+            transform: rotate(360deg);
         }
         
         /* Hero Section */
@@ -93,6 +107,9 @@
             gap: 4rem;
             align-items: center;
             min-height: 80vh;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
         }
         
         .hero-content h1 {
@@ -127,6 +144,7 @@
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
         }
         
         .hero-image {
@@ -155,6 +173,7 @@
             transform: translate(-50%, -50%);
             box-shadow: 0 15px 40px rgba(255, 23, 68, 0.4);
             z-index: 3;
+            transition: all 0.5s ease;
         }
         
         /* Fish Eye */
@@ -341,11 +360,29 @@
             100% { transform: translateY(-60px) scale(0.8); opacity: 0; }
         }
         
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
         /* Section Styles */
         .section {
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
         }
         
         .section-title {
@@ -388,6 +425,13 @@
             background: linear-gradient(135deg, #8b5cf6, #6366f1);
             border-color: transparent;
             color: white;
+            transform: scale(1.05);
+        }
+        
+        .filter-btn:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: scale(1.05);
         }
         
         .fish-grid {
@@ -395,6 +439,9 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 0.4s;
         }
         
         .fish-card {
@@ -419,6 +466,11 @@
             background: linear-gradient(135deg, #64748b, #475569);
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .fish-image:hover {
+            transform: scale(1.05);
         }
         
         .fish-image::before {
@@ -429,10 +481,16 @@
             transform: translate(-50%, -50%);
             font-size: 4rem;
             opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .fish-image:hover::before {
+            opacity: 0.9;
         }
         
         .fish-info {
             padding: 1.5rem;
+            transition: background 0.3s ease;
         }
         
         .fish-info h3 {
@@ -471,12 +529,21 @@
             transition: all 0.3s ease;
         }
         
+        .load-more-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
+        }
+        
         /* Weather Section */
         .weather-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 0.6s;
         }
         
         .weather-card {
@@ -492,11 +559,17 @@
         .weather-card:hover {
             transform: translateY(-5px);
             border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(30, 41, 59, 0.8);
         }
         
         .weather-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .weather-card:hover .weather-icon {
+            transform: scale(1.1);
         }
         
         .weather-temp {
@@ -525,6 +598,9 @@
             border-radius: 16px;
             padding: 2rem;
             margin: 2rem 0;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 0.8s;
         }
         
         .weather-tips h3 {
@@ -542,7 +618,15 @@
             color: #cbd5e1;
             position: relative;
             padding-left: 1.5rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.5s ease forwards;
         }
+        
+        .weather-tips li:nth-child(1) { animation-delay: 0.9s; }
+        .weather-tips li:nth-child(2) { animation-delay: 1.0s; }
+        .weather-tips li:nth-child(3) { animation-delay: 1.1s; }
+        .weather-tips li:nth-child(4) { animation-delay: 1.2s; }
         
         .weather-tips li::before {
             content: '•';
@@ -559,6 +643,9 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 1s;
         }
         
         .map-label {
@@ -572,12 +659,23 @@
             font-weight: 600;
             z-index: 100;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .map-label:hover {
+            background: rgba(15, 23, 42, 1);
+            transform: translateY(-2px);
         }
         
         .satellite-map {
             width: 100%;
             height: 500px;
             border: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .satellite-map.loading {
+            opacity: 0;
         }
         
         /* Map Controls */
@@ -601,25 +699,103 @@
         .map-control-btn:hover {
             background: rgba(59, 130, 246, 0.2);
             border-color: rgba(59, 130, 246, 0.5);
+            transform: scale(1.05);
         }
         
         .map-control-btn.active {
             background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             border-color: transparent;
             color: white;
+            transform: scale(1.05);
         }
         
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 4rem 2rem 2rem;
+        /* Gallery Section */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 0.4s;
+        }
+        
+        .gallery-item {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #64748b, #475569);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-image::before {
+            content: '📸';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-image:hover::before {
+            opacity: 0.9;
+        }
+        
+        .gallery-info {
+            padding: 1.5rem;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .footer h2 {
-            font-size: 2rem;
+        .gallery-info h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 1.2s;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .contact-title {
+            font-size: 2.5rem;
             font-weight: 700;
+            text-align: center;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
@@ -627,12 +803,280 @@
             background-clip: text;
         }
         
-        .footer p {
+        .contact-divider {
+            width: 5rem;
+            height: 0.25rem;
+            background: #facc15;
+            margin: 0 auto 1rem;
+        }
+        
+        .contact-subtitle {
+            max-width: 32rem;
+            margin: 0 auto 3rem;
+            color: #cbd5e1;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+        
+        .contact-form-container, .contact-info-container {
+            flex: 1 1 100%;
+            min-width: 0;
+        }
+        
+        @media (min-width: 1024px) {
+            .contact-form-container, .contact-info-container {
+                flex: 1 1 50%;
+            }
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #f1f5f9;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #facc15;
+            box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.3);
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #cbd5e1;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form button {
+            background: #facc15;
+            color: #1e293b;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+            background: #eab308;
+            transform: scale(1.05);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.5s ease forwards;
+        }
+        
+        .contact-info-item:nth-child(1) { animation-delay: 1.3s; }
+        .contact-info-item:nth-child(2) { animation-delay: 1.4s; }
+        .contact-info-item:nth-child(3) { animation-delay: 1.5s; }
+        .contact-info-item:nth-child(4) { animation-delay: 1.6s; }
+        
+        .contact-info-icon {
+            background: #facc15;
+            color: #1e293b;
+            padding: 0.75rem;
+            border-radius: 50%;
+            margin-right: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-info-item:hover .contact-info-icon {
+            transform: scale(1.1);
+        }
+        
+        .contact-info-item h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: #f1f5f9;
+        }
+        
+        .contact-info-item p {
             color: #94a3b8;
+        }
+        
+        .social-links {
+            margin-top: 2rem;
+        }
+        
+        .social-links h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #f1f5f9;
+        }
+        
+        .social-links .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 0.75rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        /* Office Map Section */
+        .office-map {
+            height: 24rem;
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+            animation-delay: 1.4s;
+        }
+        
+        .office-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 3rem 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 1.6s;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #f1f5f9;
+        }
+        
+        .footer-section p {
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #facc15;
+        }
+        
+        .footer-section .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-section .social-icons a {
+            color: #cbd5e1;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .footer-section .social-icons a:hover {
+            color: #facc15;
+            transform: scale(1.1);
+        }
+        
+        .footer-section .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-section .contact-item i {
+            color: #facc15;
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        
+        .footer-section .contact-item span {
+            color: #94a3b8;
+        }
+        
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-divider p {
+            color: #94a3b8;
         }
         
         /* Responsive Design */
@@ -674,6 +1118,35 @@
             
             .map-controls {
                 flex-wrap: wrap;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                flex-direction: column;
+            }
+            
+            .office-map {
+                height: 16rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
     </style>
@@ -728,8 +1201,8 @@
         <p class="section-subtitle">Maximize your business and grow it with our industry-leading AI solutions. Enjoy premium performance at a fraction of the cost of competitors—that's smart business!</p>
         
         <div class="katalog-filters">
-            <button class="filter-btn active">Konsumsi</button>
-            <button class="filter-btn">Hias</button>
+            <button class="filter-btn active" onclick="filterFish('konsumsi')">Konsumsi</button>
+            <button class="filter-btn" onclick="filterFish('hias')">Hias</button>
         </div>
         
         <div class="fish-grid">
@@ -808,6 +1281,33 @@
         
         <div class="load-more">
             <a href="#" class="load-more-btn">Selengkapnya</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-subtitle">Explore stunning images of marine life and ocean ecosystems.</p>
+        
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <div class="gallery-image"></div>
+                <div class="gallery-info">
+                    <h3>Coral Reef</h3>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image"></div>
+                <div class="gallery-info">
+                    <h3>Tropical Fish</h3>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image"></div>
+                <div class="gallery-info">
+                    <h3>Deep Sea</h3>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -892,19 +1392,174 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 class="contact-title">Hubungi Kami</h2>
+            <div class="contact-divider"></div>
+            <p class="contact-subtitle">Silakan hubungi kami untuk informasi lebih lanjut atau pengaduan terkait sektor perikanan</p>
+            
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <div class="contact-card">
+                        <h3>Kirim Pesan</h3>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nama Lengkap</label>
+                                <input type="text" id="name" placeholder="Masukkan nama Anda">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Alamat Email</label>
+                                <input type="email" id="email" placeholder="Masukkan email Anda">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subjek</label>
+                                <input type="text" id="subject" placeholder="Masukkan subjek pesan">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Pesan</label>
+                                <textarea id="message" rows="5" placeholder="Tulis pesan Anda"></textarea>
+                            </div>
+                            <button type="submit">Kirim Pesan <i class="fas fa-paper-plane ml-2"></i></button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="contact-info-container">
+                    <div class="contact-card">
+                        <h3>Informasi Kontak</h3>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Alamat Kantor</h4>
+                                <p>Jl. Perikanan No. 123, Kelurahan Contoh, Kecamatan Contoh, Kabupaten Contoh, Provinsi Contoh</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p>(021) 12345678</p>
+                                <p>(021) 87654321</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>perikanan@kabupaten.go.id</p>
+                                <p>info.perikanan@kabupaten.go.id</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Jam Kerja</h4>
+                                <p>Senin - Kamis: 08.00 - 16.00 WIB</p>
+                                <p>Jumat: 08.00 - 16.30 WIB</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <h4>Sosial Media</h4>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Map Section -->
+    <div class="office-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507824!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sMonumen%20Nasional!5e0!3m2!1sen!2sid!4v1628589358000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
     <!-- Footer -->
-    <footer class="footer" id="contact">
-        <h2>Hubungi Kami</h2>
-        <p>Siaran hubungi kami untuk informasi lebih lanjut atau pengalaman terkait dengan pembayaran.</p>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Dinas Perikanan</h3>
+                    <p>Pengelolaan, pembinaan, dan pengembangan sektor perikanan di Kabupaten Contoh.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#">Profil</a></li>
+                        <li><a href="#">Layanan</a></li>
+                        <li><a href="#">Publikasi</a></li>
+                        <li><a href="#">Berita</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Layanan Publik</h3>
+                    <ul>
+                        <li><a href="#">Perizinan Usaha</a></li>
+                        <li><a href="#">Sertifikasi Produk</a></li>
+                        <li><a href="#">Pelatihan</a></li>
+                        <li><a href="#">Pengaduan</a></li>
+                        <li><a href="#">Data Statistik</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jl. Perikanan No. 123, Kabupaten Contoh</span>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(021) 12345678</span>
+                        </li>
+                        <li class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>perikanan@kabupaten.go.id</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-divider">
+                <p>&copy; 2025 Dinas Perikanan Kabupaten Contoh. Seluruh hak cipta dilindungi.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Function to change the map view and update tips
+        // Function to change the map view with smooth transition
         function changeMapView(viewType) {
             const map = document.getElementById('weather-map');
             const mapTitle = document.getElementById('map-reading-title');
             const mapTipsList = document.getElementById('map-reading-list');
             const weatherTipsList = document.getElementById('weather-tips-list');
+            
+            // Add loading class for fade transition
+            map.classList.add('loading');
             
             // Update active button
             document.querySelectorAll('.map-control-btn').forEach(btn => {
@@ -912,93 +1567,141 @@
             });
             event.target.classList.add('active');
             
-            // Change map source based on view type
-            switch(viewType) {
-                case 'radar':
-                    map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=radar';
-                    mapTitle.textContent = 'Membaca Peta Radar:';
-                    mapTipsList.innerHTML = `
-                        <li><strong style="color: #3b82f6;">Warna Biru:</strong> Hujan ringan (0-2 mm/jam)</li>
-                        <li><strong style="color: #10b981;">Warna Hijau-Kuning:</strong> Hujan sedang (2-10 mm/jam)</li>
-                        <li><strong style="color: #ef4444;">Warna Merah:</strong> Hujan lebat/badai (>10 mm/jam)</li>
-                        <li><strong style="color: #f1f5f9;">Area Putih:</strong> Awan tebal tanpa hujan</li>
-                    `;
-                    weatherTipsList.innerHTML = `
-                        <li>Pantau area merah untuk menghindari badai</li>
-                        <li>Hujan ringan masih aman untuk memancing</li>
-                        <li>Perhatikan perubahan intensitas hujan</li>
-                        <li>Siapkan perlengkapan hujan jika melihat area biru/hijau mendekat</li>
-                    `;
-                    break;
-                    
-                case 'satellite':
-                    map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=clouds';
-                    mapTitle.textContent = 'Membaca Peta Satelit:';
-                    mapTipsList.innerHTML = `
-                        <li><strong style="color: #ffffff;">Warna Putih:</strong> Awan tebal/tinggi</li>
-                        <li><strong style="color: #94a3b8;">Warna Abu-abu:</strong> Awan rendah/kabut</li>
-                        <li><strong style="color: #000000;">Area Hitam:</strong> Langit cerah</li>
-                        <li>Awan bergerak menunjukkan arah angin</li>
-                    `;
-                    weatherTipsList.innerHTML = `
-                        <li>Awan putih tebal sering mendahului hujan</li>
-                        <li>Langit hitam cerah bagus untuk aktivitas laut</li>
-                        <li>Pantau pergerakan awan untuk prediksi cuaca</li>
-                        <li>Kabut (abu-abu) bisa mengurangi visibilitas</li>
-                    `;
-                    break;
-                    
-                case 'lightning':
-                    map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=lightning';
-                    mapTitle.textContent = 'Membaca Peta Petir:';
-                    mapTipsList.innerHTML = `
-                        <li><strong style="color: #f59e0b;">Kuning:</strong> Petir dalam 30 menit terakhir</li>
-                        <li><strong style="color: #ef4444;">Merah:</strong> Petir aktif saat ini</li>
-                        <li>Kepadatan titik menunjukkan intensitas badai</li>
-                        <li>Petir sering disertai hujan lebat dan angin kencang</li>
-                    `;
-                    weatherTipsList.innerHTML = `
-                        <li>Hindari laut saat ada petir aktif (merah)</li>
-                        <li>Segera cari perlindungan jika petir mendekat</li>
-                        <li>Petir sering terjadi saat cuaca panas lembap</li>
-                        <li>Pantau perkembangan area kuning yang mungkin memburuk</li>
-                    `;
-                    break;
-                    
-                case 'wind':
-                    map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=wind';
-                    mapTitle.textContent = 'Membaca Peta Angin:';
-                    mapTipsList.innerHTML = `
-                        <li><strong style="color: #dbeafe;">Biru Muda:</strong> Angin lemah (0-20 km/jam)</li>
-                        <li><strong style="color: #60a5fa;">Biru:</strong> Angin sedang (20-40 km/jam)</li>
-                        <li><strong style="color: #1d4ed8;">Biru Tua:</strong> Angin kencang (>40 km/jam)</li>
-                        <li>Garis menunjukkan arah angin</li>
-                    `;
-                    weatherTipsList.innerHTML = `
-                        <li>Angin >30 km/jam bisa membahayakan perahu kecil</li>
-                        <li>Pantau perubahan arah angin</li>
-                        <li>Angin kencang bisa menyebabkan gelombang tinggi</li>
-                        <li>Angin laut biasanya tenang di pagi hari</li>
-                    `;
-                    break;
-                    
-                case 'waves':
-                    map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=waves';
-                    mapTitle.textContent = 'Membaca Peta Gelombang:';
-                    mapTipsList.innerHTML = `
-                        <li><strong style="color: #86efac;">Hijau Muda:</strong> Gelombang kecil (0-1 m)</li>
-                        <li><strong style="color: #4ade80;">Hijau:</strong> Gelombang sedang (1-2 m)</li>
-                        <li><strong style="color: #166534;">Hijau Tua:</strong> Gelombang besar (>2 m)</li>
-                        <li>Garis menunjukkan arah arus</li>
-                    `;
-                    weatherTipsList.innerHTML = `
-                        <li>Gelombang >1.5m berbahaya untuk perahu kecil</li>
-                        <li>Pantau arah arus saat menyelam</li>
-                        <li>Gelombang besar sering menyertai badai</li>
-                        <li>Perhatikan periode gelombang (jarak antara puncak)</li>
-                    `;
-                    break;
-            }
+            // Delay to allow fade-out
+            setTimeout(() => {
+                // Change map source based on view type
+                switch(viewType) {
+                    case 'radar':
+                        map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=radar';
+                        mapTitle.textContent = 'Membaca Peta Radar:';
+                        mapTipsList.innerHTML = `
+                            <li><strong style="color: #3b82f6;">Warna Biru:</strong> Hujan ringan (0-2 mm/jam)</li>
+                            <li><strong style="color: #10b981;">Warna Hijau-Kuning:</strong> Hujan sedang (2-10 mm/jam)</li>
+                            <li><strong style="color: #ef4444;">Warna Merah:</strong> Hujan lebat/badai (>10 mm/jam)</li>
+                            <li><strong style="color: #f1f5f9;">Area Putih:</strong> Awan tebal tanpa hujan</li>
+                        `;
+                        weatherTipsList.innerHTML = `
+                            <li>Pantau area merah untuk menghindari badai</li>
+                            <li>Hujan ringan masih aman untuk memancing</li>
+                            <li>Perhatikan perubahan intensitas hujan</li>
+                            <li>Siapkan perlengkapan hujan jika melihat area biru/hijau mendekat</li>
+                        `;
+                        break;
+                        
+                    case 'satellite':
+                        map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=clouds';
+                        mapTitle.textContent = 'Membaca Peta Satelit:';
+                        mapTipsList.innerHTML = `
+                            <li><strong style="color: #ffffff;">Warna Putih:</strong> Awan tebal/tinggi</li>
+                            <li><strong style="color: #94a3b8;">Warna Abu-abu:</strong> Awan rendah/kabut</li>
+                            <li><strong style="color: #000000;">Area Hitam:</strong> Langit cerah</li>
+                            <li>Awan bergerak menunjukkan arah angin</li>
+                        `;
+                        weatherTipsList.innerHTML = `
+                            <li>Awan putih tebal sering mendahului hujan</li>
+                            <li>Langit hitam cerah bagus untuk aktivitas laut</li>
+                            <li>Pantau pergerakan awan untuk prediksi cuaca</li>
+                            <li>Kabut (abu-abu) bisa mengurangi visibilitas</li>
+                        `;
+                        break;
+                        
+                    case 'lightning':
+                        map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=lightning';
+                        mapTitle.textContent = 'Membaca Peta Petir:';
+                        mapTipsList.innerHTML = `
+                            <li><strong style="color: #f59e0b;">Kuning:</strong> Petir dalam 30 menit terakhir</li>
+                            <li><strong style="color: #ef4444;">Merah:</strong> Petir aktif saat ini</li>
+                            <li>Kepadatan titik menunjukkan intensitas badai</li>
+                            <li>Petir sering disertai hujan lebat dan angin kencang</li>
+                        `;
+                        weatherTipsList.innerHTML = `
+                            <li>Hindari laut saat ada petir aktif (merah)</li>
+                            <li>Segera cari perlindungan jika petir mendekat</li>
+                            <li>Petir sering terjadi saat cuaca panas lembap</li>
+                            <li>Pantau perkembangan area kuning yang mungkin memburuk</li>
+                        `;
+                        break;
+                        
+                    case 'wind':
+                        map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=wind';
+                        mapTitle.textContent = 'Membaca Peta Angin:';
+                        mapTipsList.innerHTML = `
+                            <li><strong style="color: #dbeafe;">Biru Muda:</strong> Angin lemah (0-20 km/jam)</li>
+                            <li><strong style="color: #60a5fa;">Biru:</strong> Angin sedang (20-40 km/jam)</li>
+                            <li><strong style="color: #1d4ed8;">Biru Tua:</strong> Angin kencang (>40 km/jam)</li>
+                            <li>Garis menunjukkan arah angin</li>
+                        `;
+                        weatherTipsList.innerHTML = `
+                            <li>Angin >30 km/jam bisa membahayakan perahu kecil</li>
+                            <li>Pantau perubahan arah angin</li>
+                            <li>Angin kencang bisa menyebabkan gelombang tinggi</li>
+                            <li>Angin laut biasanya tenang di pagi hari</li>
+                        `;
+                        break;
+                        
+                    case 'waves':
+                        map.src = 'https://www.ventusky.com/?p=-8.253;114.385;11&l=waves';
+                        mapTitle.textContent = 'Membaca Peta Gelombang:';
+                        mapTipsList.innerHTML = `
+                            <li><strong style="color: #86efac;">Hijau Muda:</strong> Gelombang kecil (0-1 m)</li>
+                            <li><strong style="color: #4ade80;">Hijau:</strong> Gelombang sedang (1-2 m)</li>
+                            <li><strong style="color: #166534;">Hijau Tua:</strong> Gelombang besar (>2 m)</li>
+                            <li>Garis menunjukkan arah arus</li>
+                        `;
+                        weatherTipsList.innerHTML = `
+                            <li>Gelombang >1.5m berbahaya untuk perahu kecil</li>
+                            <li>Pantau arah arus saat menyelam</li>
+                            <li>Gelombang besar sering menyertai badai</li>
+                            <li>Perhatikan periode gelombang (jarak antara puncak)</li>
+                        `;
+                        break;
+                }
+                
+                // Remove loading class after transition
+                setTimeout(() => {
+                    map.classList.remove('loading');
+                }, 500);
+            }, 500);
+        }
+        
+        // Function to filter fish cards with smooth transition
+        function filterFish(type) {
+            const fishGrid = document.querySelector('.fish-grid');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === type) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Fade out grid
+            fishGrid.style.opacity = '0';
+            fishGrid.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                // In a real app, you would filter fish cards here
+                // For demo, we'll just simulate a change
+                fishGrid.innerHTML = `
+                    <div class="fish-card">
+                        <div class="fish-image"></div>
+                        <div class="fish-info">
+                            <h3>${type === 'konsumsi' ? 'Sun Ingold' : 'Betta Splendens'}</h3>
+                            <p>${type === 'konsumsi' ? 'Nutritious fish suitable for consumption.' : 'Colorful ornamental fish for aquariums.'}</p>
+                            <div class="fish-stats">
+                                <span>Habitat: ${type === 'konsumsi' ? 'Laut dalam' : 'Air tawar'}</span>
+                                <span>Size: ${type === 'konsumsi' ? '15-25cm' : '5-7cm'}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Fade in grid
+                fishGrid.style.opacity = '1';
+                fishGrid.style.transform = 'translateY(0)';
+            }, 300);
         }
         
         // Update weather tips based on current conditions
@@ -1007,25 +1710,56 @@
             const hour = now.getHours();
             const weatherTipsList = document.getElementById('weather-tips-list');
             
-            // Example logic - in a real app you'd use actual weather data
-            if (hour >= 6 && hour < 18) {
-                // Daytime
-                weatherTipsList.innerHTML = `
-                    <li>Waktu terbaik untuk memancing: pagi dan sore hari</li>
-                    <li>Gunakan tabir surya SPF 50+</li>
-                    <li>Periksa prakiraan angin sebelum berlayar</li>
-                    <li>Bawa cukup air minum untuk menghindari dehidrasi</li>
-                `;
-            } else {
-                // Nighttime
-                weatherTipsList.innerHTML = `
-                    <li>Hindari berlayar jauh di malam hari</li>
-                    <li>Pastikan lampu navigasi berfungsi</li>
-                    <li>Waspada terhadap perubahan angin malam</li>
-                    <li>Beberapa spesies ikan lebih aktif di malam hari</li>
-                `;
-            }
+            // Fade out
+            weatherTipsList.style.opacity = '0';
+            weatherTipsList.style.transform = 'translateX(-20px)';
+            
+            setTimeout(() => {
+                // Update content
+                if (hour >= 6 && hour < 18) {
+                    // Daytime
+                    weatherTipsList.innerHTML = `
+                        <li>Waktu terbaik untuk memancing: pagi dan sore hari</li>
+                        <li>Gunakan tabir surya SPF 50+</li>
+                        <li>Periksa prakiraan angin sebelum berlayar</li>
+                        <li>Bawa cukup air minum untuk menghindari dehidrasi</li>
+                    `;
+                } else {
+                    // Nighttime
+                    weatherTipsList.innerHTML = `
+                        <li>Hindari berlayar jauh di malam hari</li>
+                        <li>Pastikan lampu navigasi berfungsi</li>
+                        <li>Waspada terhadap perubahan angin malam</li>
+                        <li>Beberapa spesies ikan lebih aktif di malam hari</li>
+                    `;
+                }
+                
+                // Fade in
+                weatherTipsList.style.opacity = '1';
+                weatherTipsList.style.transform = 'translateX(0)';
+            }, 300);
         }
+        
+        // Smooth scroll for navigation with error handling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } else {
+                    console.warn(`Element with ID ${targetId} not found.`);
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
         
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
